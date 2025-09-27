@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Colores Primarios en Inglés</title>
+  <link rel="icon" href="logo.png" type="image/png">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0; padding: 0;
+    }
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 15px;
+    }
+    header {
+      background-color: #ffcc66;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      color: #ff6600;
+      font-size: 2.2rem;
+      margin: 0;
+    }
+    h2 {
+      color: #3366cc;
+      font-size: 1.8rem;
+      border-bottom: 3px dotted #3366cc;
+      padding-bottom: 10px;
+    }
+    .grade-selector {
+      background-color: #e8f5e8;
+      padding: 25px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .grade-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+    .grade-btn {
+      background: linear-gradient(135deg, #ff6b6b, #feca57);
+      border: none;
+      color: white;
+      padding: 15px 25px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      min-width: 120px;
+    }
+    .grade-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+    .grade-btn.active {
+      background: linear-gradient(135deg, #48dbfb, #0abde3);
+      transform: scale(1.05);
+    }
+    .grade-btn:nth-child(1) {
+      background: linear-gradient(135deg, #ff9ff3, #f368e0);
+    }
+    .grade-btn:nth-child(2) {
+      background: linear-gradient(135deg, #54a0ff, #2e86de);
+    }
+    .grade-btn:nth-child(3) {
+      background: linear-gradient(135deg, #5f27cd, #341f97);
+    }
+    .color-section, .number-section, .animal-section, .family-section, .body-section {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+    .activity {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+    .color-item, .number-item, .animal-item, .family-item, .body-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .color-box {
+      width: 80px;
+      height: 80px;
+      border: 3px solid #333;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+    .color-box:hover, .number-box:hover, .animal-box:hover, .family-box:hover, .body-box:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+    .number-box, .animal-box, .family-box, .body-box {
+      width: 80px;
+      height: 80px;
+      border: 3px solid #333;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      background-color: #f0f0f0;
+      transition: transform 0.3s;
+    }
+    .color-name, .number-name, .animal-name, .family-name, .body-name {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .exercise {
+      background-color: #e6f7ff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+    .instructions {
+      background-color: #ffffcc;
+      padding: 15px;
+      border-radius: 10px;
+      border-left: 5px solid #ffcc00;
+      margin-bottom: 20px;
+    }
+    button {
+      margin-top: 10px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    footer {
+      background-color: #ffcc66;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+    }
+    .content-section {
+      display: none;
+    }
+    .content-section.active {
+      display: block;
+    }
+    .age-indicator {
+      display: inline-block;
+      background-color: #ff6600;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+    @media (max-width: 768px) {
+      .color-box, .number-box, .animal-box, .family-box, .body-box {
+        width: 70px;
+        height: 70px;
+      }
+      button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+      }
+      .grade-btn {
+        padding: 12px 20px;
+        font-size: 1rem;
+        min-width: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>¡Aprendamos los Colores Primarios en Inglés!</h1>
+      <p>Descubre los colores mágicos que forman todos los demás</p>
+      <h1>PROFESOR MARCO</h1>
+      <img src="MARCO.png" alt="Profesor Marco">
+    </header>
+
+    <div class="grade-selector">
+      <h2>🎨 Selecciona tu Grado 🎨</h2>
+      <p>Elige tu edad para comenzar con ejercicios apropiados para ti</p>
+      <div class="grade-buttons">
+        <button class="grade-btn" onclick="selectGrade('3years')">
+          🐣 3 Años
+        </button>
+        <button class="grade-btn" onclick="selectGrade('4years')">
+          🌟 4 Años
+        </button>
+        <button class="grade-btn" onclick="selectGrade('5years')">
+          🚀 5 Años
+        </button>
+      </div>
+    </div>
+
+    <!-- Contenido para 3 años -->
+    <div id="3years-content" class="content-section">
+      <div class="age-indicator">👶 Contenido para 3 años</div>
+      
+      <div class="color-section">
+        <h2>Colores Primarios</h2>
+        <p>¡Vamos a conocer los colores más importantes!</p>
+        <div class="activity">
+          <div class="color-item">
+            <div class="color-box" style="background-color: #ff0000;"></div>
+            <p class="color-name">RED - ROJO</p>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background-color: #0000ff;"></div>
+            <p class="color-name">BLUE - AZUL</p>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background-color: #ffff00;"></div>
+            <p class="color-name">YELLOW - AMARILLO</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <h2>¡Toca el color!</h2>
+        <div class="instructions">
+          <p>Haz clic en cada color para escuchar su nombre.</p>
+        </div>
+        <div class="activity">
+          <div class="color-item">
+            <div class="color-box" style="background-color: #ff0000;"></div>
+            <p class="color-name">RED</p>
+            <button onclick="alert('¡RED! ¡Muy bien! 🎉')">Tocar</button>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background-color: #0000ff;"></div>
+            <p class="color-name">BLUE</p>
+            <button onclick="alert('¡BLUE! ¡Excelente! 🎉')">Tocar</button>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background-color: #ffff00;"></div>
+            <p class="color-name">YELLOW</p>
+            <button onclick="alert('¡YELLOW! ¡Fantástico! 🎉')">Tocar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="number-section">
+        <h2>Números del 0 al 5</h2>
+        <p>¡Aprendamos a contar del 0 al 5 en inglés!</p>
+        <div class="activity">
+          <div class="number-item">
+            <div class="number-box">0</div>
+            <p class="number-name">ZERO</p>
+          </div>
+          <div class="number-item">
+            <div class="number-box">1</div>
+            <p class="number-name">ONE</p>
+          </div>
+          <div class="number-item">
+            <div class="number-box">2</div>
+            <p class="number-name">TWO</p>
+          </div>
+          <div class="number-item">
+            <div class="number-box">3</div>
+            <p class="number-name">THREE</p>
+          </div>
+          <div class="number-item">
+            <div class="number-box">4</div>
+            <p class="number-name">FOUR</p>
+          </div>
+          <div class="number-item">
+            <div class="number-box">5</div>
+            <p class="number-name">FIVE</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <h2>¡Toca el número!</h2>
+        <div class="instructions">
+          <p>Haz clic en cada número para escuchar su nombre.</p>
+        </div>
+        <div class="activity">
+          <div class="number-item">
+            <div class="number-box">0</div>
+            <p class="number-name">ZERO</p>
+            <button onclick="alert('¡ZERO! ¡Muy bien! 🎉')">Tocar</button>
+          </div>
+          <div class="number-item">
+            <div class="number-box">1</div>
+            <p class="number-name">ONE</p>
+            <button onclick="alert('¡ONE! ¡Excelente! 🎉')">Tocar</button>
+          </div>
+          <div class="number-item">
+            <div class="number-box">2</div>
+            <p class="number-name">TWO</p>
+            <button onclick="alert('¡TWO! ¡Fantástico! 🎉')">Tocar</button>
+          </div>
+          <div class="number-item">
+            <div class="number-box">3</div>
+            <p class="number-name">THREE</p>
+            <button onclick="alert('¡THREE! ¡Muy bien! 🎉')">Tocar</button>
+          </div>
+          <div class="number-item">
+            <div class="number-box">4</div>
+            <p class="number-name">FOUR</p>
+            <button onclick="alert('¡FOUR! ¡Excelente! 🎉')">Tocar</button>
+          </div>
+          <div class="number-item">
+            <div class="number-box">5</div>
+            <p class="number-name">FIVE</p>
+            <button onclick="alert('¡FIVE! ¡Fantástico! 🎉')">Tocar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="animal-section">
+        <h2>Animales</h2>
+        <p>¡Conoce a estos animales en inglés!</p>
+        <div class="activity">
+          <div class="animal-item">
+            <div class="animal-box">🐶</div>
+            <p class="animal-name">DOG - PERRO</p>
+          </div>
+          <div class="animal-item">
+            <div class="animal-box">🐱</div>
+            <p class="animal-name">CAT - GATO</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <h2>¡Toca el animal!</h2>
+        <div class="instructions">
+          <p>Haz clic en cada animal para escuchar su nombre.</p>
+        </div>
+        <div class="activity">
+          <div class="animal-item">
+            <div class="animal-box">🐶</div>
+            <p class="animal-name">DOG</p>
+            <button onclick="alert('¡DOG! ¡Muy bien! 🎉')">Tocar</button>
+          </div>
+          <div class="animal-item">
+            <div class="animal-box">🐱</div>
+            <p class="animal-name">CAT</p>
+            <button onclick="alert('¡CAT! ¡Excelente! 🎉')">Tocar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenido para 4 años -->
+    <div id="4years-content" class="content-section">
+      <div class="age-indicator">🌟 Contenido para 4 años</div>
+      
+      <div class="color-section">
+        <h2>Colores Primarios</h2>
+        <p>Los colores primarios no se pueden obtener mezclando otros colores. ¡Son la base para crear muchos más!</p>
+        <div class="activity">
+          <div class="color-item">
+            <div class="color-box" style="background-color: #ff0000;"></div>
+            <p class="color-name">RED</p>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background-color: #0000ff;"></div>
+            <p class="color-name">BLUE</p>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background-color: #ffff00;"></div>
+            <p class="color-name">YELLOW</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <h2>¡Identifica el color!</h2>
+        <div class="activity">
+          <div class="color-item">
+            <div class="color-box" style="background-color: #ff0000;"></div>
+            <p class="color-name">RED</p>
+            <button onclick="alert('¡Correcto! RED es un color primario. 🎉')">Comprobar</button>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background-color: #0000ff;"></div>
+            <p class="color-name">BLUE</p>
+            <button onclick="alert('¡Correcto! BLUE es un color primario. 🎉')">Comprobar</button>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background-color: #ffff00;"></div>
+            <p class="color-name">YELLOW</p>
+            <button onclick="alert('¡Correcto! YELLOW es un color primario. 🎉')">Comprobar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <h3>¿Es este un color primario?</h3>
+        <div class="activity">
+          <div class="color-item">
+            <div class="color-box" style="background-color: #00ff2a;"></div>
+            <p class="color-name">GREEN</p>
+            <button onclick="alert('¡Incorrecto! GREEN no es un color primario. 🤔')">Comprobar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="animal-section">
+        <h2>Animales</h2>
+        <p>¡Aprendamos sobre algunos animales en inglés!</p>
+        <div class="activity">
+          <div class="animal-item">
+            <div class="animal-box">🐶</div>
+            <p class="animal-name">DOG - PERRO</p>
+          </div>
+          <div class="animal-item">
+            <div class="animal-box">🐱</div>
+            <p class="animal-name">CAT - GATO</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <h2>¡Identifica el animal!</h2>
+        <div class="activity">
+          <div class="animal-item">
+            <div class="animal-box">🐶</div>
+            <p class="animal-name">DOG</p>
+            <button onclick="alert('¡Correcto! DOG es PERRO. 🎉')">Comprobar</button>
+          </div>
+          <div class="animal-item">
+            <div class="animal-box">🐱</div>
+            <p class="animal-name">CAT</p>
+            <button onclick="alert('¡Correcto! CAT es GATO. 🎉')">Comprobar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="family-section">
+        <h2>La Familia</h2>
+        <p>¡Conoce a los miembros de la familia en inglés!</p>
+        <div class="activity">
+          <div class="family-item">
+            <div class="family-box">👴</div>
+            <p class="family-name">GRANDFATHER - ABUELO</p>
+          </div>
+          <div class="family-item">
+            <div class="family-box">👵</div>
+            <p class="family-name">GRANDMOTHER - ABUELA</p>
+          </div>
+          <div class="family-item">
+            <div class="family-box">👨</div>
+            <p class="family-name">FATHER - PADRE</p>
+          </div>
+          <div class="family-item">
+            <div class="family-box">👩</div>
+            <p class="family-name">MOTHER - MADRE</p>
+          </div>
+          <div class="family-item">
+            <div class="family-box">👶</div>
+            <p class="family-name">BABY - BEBÉ</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <h2>¡Identifica a la familia!</h2>
+        <div class="activity">
+          <div class="family-item">
+            <div class="family-box">👴</div>
+            <p class="family-name">GRANDFATHER</p>
+            <button onclick="alert('¡Correcto! GRANDFATHER es ABUELO. 🎉')">Comprobar</button>
+          </div>
+          <div class="family-item">
+            <div class="family-box">👵</div>
+            <p class="family-name">GRANDMOTHER</p>
+            <button onclick="alert('¡Correcto! GRANDMOTHER es ABUELA. 🎉')">Comprobar</button>
+          </div>
+          <div class="family-item">
+            <div class="family-box">👨</div>
+            <p class="family-name">FATHER</p>
+            <button onclick="alert('¡Correcto! FATHER es PADRE. 🎉')">Comprobar</button>
+          </div>
+          <div class="family-item">
+            <div class="family-box">👩</div>
+            <p class="family-name">MOTHER</p>
+            <button onclick="alert('¡Correcto! MOTHER es MADRE. 🎉')">Comprobar</button>
+          </div>
+          <div class="family-item">
+            <div class="family-box">👶</div>
+            <p class="family-name">BABY</p>
+            <button onclick="alert('¡Correcto! BABY es BEBÉ. 🎉')">Comprobar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="body-section">
+        <h2>Partes del Cuerpo y de la Cara</h2>
+        <p>¡Aprendamos las partes del cuerpo y la cara en inglés!</p>
+        <div class="activity">
+          <div class="body-item">
+            <div class="body-box">👀</div>
+            <p class="body-name">EYES - OJOS</p>
+          </div>
+          <div class="body-item">
+            <div class="body-box">👃</div>
+            <p class="body-name">NOSE - NARIZ</p>
+          </div>
+          <div class="body-item">
+            <div class="body-box">👄</div>
+            <p class="body-name">MOUTH - BOCA</p>
+          </div>
+          <div class="body-item">
+            <div class="body-box">✋</div>
+            <p class="body-name">HAND - MANO</p>
+          </div>
+          <div class="body-item">
+            <div class="body-box">🦶</div>
+            <p class="body-name">FOOT - PIE</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <h2>¡Identifica las partes del cuerpo!</h2>
+        <div class="activity">
+          <div class="body-item">
+            <div class="body-box">👀</div>
+            <p class="body-name">EYES</p>
+            <button onclick="alert('¡Correcto! EYES son OJOS. 🎉')">Comprobar</button>
+          </div>
+          <div class="body-item">
+            <div class="body-box">👃</div>
+            <p class="body-name">NOSE</p>
+            <button onclick="alert('¡Correcto! NOSE es NARIZ. 🎉')">Comprobar</button>
+          </div>
+          <div class="body-item">
+            <div class="body-box">👄</div>
+            <p class="body-name">MOUTH</p>
+            <button onclick="alert('¡Correcto! MOUTH es BOCA. 🎉')">Comprobar</button>
+          </div>
+          <div class="body-item">
+            <div class="body-box">✋</div>
+            <p class="body-name">HAND</p>
+            <button onclick="alert('¡Correcto! HAND es MANO. 🎉')">Comprobar</button>
+          </div>
+          <div class="body-item">
+            <div class="body-box">🦶</div>
+            <p class="body-name">FOOT</p>
+            <button onclick="alert('¡Correcto! FOOT es PIE. 🎉')">Comprobar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenido para 5 años -->
+    <div id="5years-content" class="content-section">
+      <div class="age-indicator">🚀 Contenido para 5 años</div>
+      
+      <div class="color-section">
+        <h2>Colores Primarios</h2>
+        <p>Los colores primarios no se pueden obtener mezclando otros colores. ¡Son la base para crear muchos más!</p>
+        <div class="activity">
+          <div class="color-item">
+            <div class="color-box" style="background-color: #ff0000;"></div>
+            <p class="color-name">RED</p>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background-color: #0000ff;"></div>
+            <p class="color-name">BLUE</p>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background-color: #ffff00;"></div>
+            <p class="color-name">YELLOW</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <h2>¡Pon a prueba tus conocimientos!</h2>
+        <h3>Ejercicio 1: ¿Cuáles son los colores primarios?</h3>
+        <div class="instructions">
+          <p>Haz clic en los botones para comprobar tu respuesta.</p>
+        </div>
+        <div class="activity">
+          <div class="color-item">
+            <div class="color-box" style="background-color: #ff0000;"></div>
+            <p class="color-name">RED</p>
+            <button onclick="alert('¡Correcto! RED es un color primario.')">Comprobar</button>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background-color: #0000ff;"></div>
+            <p class="color-name">BLUE</p>
+            <button onclick="alert('¡Correcto! BLUE es un color primario.')">Comprobar</button>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background-color: #ffff00;"></div>
+            <p class="color-name">YELLOW</p>
+            <button onclick="alert('¡Correcto! YELLOW es un color primario.')">Comprobar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <h3>Ejercicio 2: ¿Es el BROWN un color primario?</h3>
+        <div class="activity">
+          <div class="color-item">
+            <div class="color-box" style="background-color: #8b4513;"></div>
+            <p class="color-name">BROWN</p>
+            <button onclick="alert('¡Incorrecto! BROWN no es un color primario.')">Comprobar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <h3>Ejercicio 3: ¿Es el VIOLET un color primario?</h3>
+        <div class="activity">
+          <div class="color-item">
+            <div class="color-box" style="background-color: #800080;"></div>
+            <p class="color-name">VIOLET</p>
+            <button onclick="alert('¡Incorrecto! VIOLET no es un color primario.')">Comprobar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <h3>Ejercicio 4: ¿Cómo se dice este color en español?</h3>
+        <div class="activity">
+          <div class="color-item">
+            <div class="color-box" style="background-color: #ff0000;"></div>
+            <p class="color-name">RED</p>
+            <button onclick="alert('¡Correcto! RED en español es ROJO.')">Comprobar</button>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background-color: #0000ff;"></div>
+            <p class="color-name">BLUE</p>
+            <button onclick="alert('¡Correcto! BLUE en español es AZUL.')">Comprobar</button>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background-color: #00ff2a;"></div>
+            <p class="color-name">GREEN</p>
+            <button onclick="alert('¡Correcto! GREEN en español es VERDE.')">Comprobar</button>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background-color: #ffff00;"></div>
+            <p class="color-name">YELLOW</p>
+            <button onclick="alert('¡Correcto! YELLOW en español es AMARILLO.')">Comprobar</button>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background-color: #ff9100;"></div>
+            <p class="color-name">ORANGE</p>
+            <button onclick="alert('¡Correcto! ORANGE en español es NARANJA.')">Comprobar</button>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background-color: #7700ff;"></div>
+            <p class="color-name">VIOLET</p>
+            <button onclick="alert('¡Correcto! VIOLET en español es VIOLETA.')">Comprobar</button>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background-color: #ffffff;"></div>
+            <p class="color-name">WHITE</p>
+            <button onclick="alert('¡Correcto! WHITE en español es BLANCO.')">Comprobar</button>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background-color: #000000;"></div>
+            <p class="color-name">BLACK</p>
+            <button onclick="alert('¡Correcto! BLACK en español es NEGRO.')">Comprobar</button>
+          </div>
+          <div class="color-item">
+            <div class="color-box" style="background-color: #743400;"></div>
+            <p class="color-name">BROWN</p>
+            <button onclick="alert('¡Correcto! BROWN en español es CAFE.')">Comprobar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="number-section">
+        <h2>Números del 0 al 20</h2>
+        <p>¡Aprendamos a contar del 0 al 20 en inglés!</p>
+        <div class="activity">
+          <div class="number-item">
+            <div class="number-box">0</div>
+            <p class="number-name">ZERO</p>
+          </div>
+          <div class="number-item">
+            <div class="number-box">1</div>
+            <p class="number-name">ONE</p>
+          </div>
+          <div class="number-item">
+            <div class="number-box">2</div>
+            <p class="number-name">TWO</p>
+          </div>
+          <div class="number-item">
+            <div class="number-box">3</div>
+            <p class="number-name">THREE</p>
+          </div>
+          <div class="number-item">
+            <div class="number-box">4</div>
+            <p class="number-name">FOUR</p>
+          </div>
+          <div class="number-item">
+            <div class="number-box">5</div>
+            <p class="number-name">FIVE</p>
+          </div>
+          <div class="number-item">
+            <div class="number-box">6</div>
+            <p class="number-name">SIX</p>
+          </div>
+          <div class="number-item">
+            <div class="number-box">7</div>
+            <p class="number-name">SEVEN</p>
+          </div>
+          <div class="number-item">
+            <div class="number-box">8</div>
+            <p class="number-name">EIGHT</p>
+          </div>
+          <div class="number-item">
+            <div class="number-box">9</div>
+            <p class="number-name">NINE</p>
+          </div>
+          <div class="number-item">
+            <div class="number-box">10</div>
+            <p class="number-name">TEN</p>
+          </div>
+          <div class="number-item">
+            <div class="number-box">11</div>
+            <p class="number-name">ELEVEN</p>
+          </div>
+          <div class="number-item">
+            <div class="number-box">12</div>
+            <p class="number-name">TWELVE</p>
+          </div>
+          <div class="number-item">
+            <div class="number-box">13</div>
+            <p class="number-name">THIRTEEN</p>
+          </div>
+          <div class="number-item">
+            <div class="number-box">14</div>
+            <p class="number-name">FOURTEEN</p>
+          </div>
+          <div class="number-item">
+            <div class="number-box">15</div>
+            <p class="number-name">FIFTEEN</p>
+          </div>
+          <div class="number-item">
+            <div class="number-box">16</div>
+            <p class="number-name">SIXTEEN</p>
+          </div>
+          <div class="number-item">
+            <div class="number-box">17</div>
+            <p class="number-name">SEVENTEEN</p>
+          </div>
+          <div class="number-item">
+            <div class="number-box">18</div>
+            <p class="number-name">EIGHTEEN</p>
+          </div>
+          <div class="number-item">
+            <div class="number-box">19</div>
+            <p class="number-name">NINETEEN</p>
+          </div>
+          <div class="number-item">
+            <div class="number-box">20</div>
+            <p class="number-name">TWENTY</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <h2>¡Identifica el número!</h2>
+        <div class="instructions">
+          <p>Haz clic en cada número para comprobar su nombre.</p>
+        </div>
+        <div class="activity">
+          <div class="number-item">
+            <div class="number-box">0</div>
+            <p class="number-name">ZERO</p>
+            <button onclick="alert('¡Correcto! ZERO es CERO. 🎉')">Comprobar</button>
+          </div>
+          <div class="number-item">
+            <div class="number-box">5</div>
+            <p class="number-name">FIVE</p>
+            <button onclick="alert('¡Correcto! FIVE es CINCO. 🎉')">Comprobar</button>
+          </div>
+          <div class="number-item">
+            <div class="number-box">10</div>
+            <p class="number-name">TEN</p>
+            <button onclick="alert('¡Correcto! TEN es DIEZ. 🎉')">Comprobar</button>
+          </div>
+          <div class="number-item">
+            <div class="number-box">15</div>
+            <p class="number-name">FIFTEEN</p>
+            <button onclick="alert('¡Correcto! FIFTEEN es QUINCE. 🎉')">Comprobar</button>
+          </div>
+          <div class="number-item">
+            <div class="number-box">20</div>
+            <p class="number-name">TWENTY</p>
+            <button onclick="alert('¡Correcto! TWENTY es VEINTE. 🎉')">Comprobar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="animal-section">
+        <h2>Animales</h2>
+        <p>¡Aprendamos sobre estos animales en inglés!</p>
+        <div class="activity">
+          <div class="animal-item">
+            <div class="animal-box">🐺</div>
+            <p class="animal-name">WOLF - LOBO</p>
+          </div>
+          <div class="animal-item">
+            <div class="animal-box">🦊</div>
+            <p class="animal-name">FOX - ZORRO</p>
+          </div>
+          <div class="animal-item">
+            <div class="animal-box">🦉</div>
+            <p class="animal-name">OWL - BÚHO</p>
+          </div>
+          <div class="animal-item">
+            <div class="animal-box">🦌</div>
+            <p class="animal-name">DEER - CIERVO</p>
+          </div>
+          <div class="animal-item">
+            <div class="animal-box">🐶</div>
+            <p class="animal-name">DOG - PERRO</p>
+          </div>
+          <div class="animal-item">
+            <div class="animal-box">🐱</div>
+            <p class="animal-name">CAT - GATO</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <h2>¡Identifica el animal!</h2>
+        <div class="activity">
+          <div class="animal-item">
+            <div class="animal-box">🐺</div>
+            <p class="animal-name">WOLF</p>
+            <button onclick="alert('¡Correcto! WOLF es LOBO. 🎉')">Comprobar</button>
+          </div>
+          <div class="animal-item">
+            <div class="animal-box">🦊</div>
+            <p class="animal-name">FOX</p>
+            <button onclick="alert('¡Correcto! FOX es ZORRO. 🎉')">Comprobar</button>
+          </div>
+          <div class="animal-item">
+            <div class="animal-box">🦉</div>
+            <p class="animal-name">OWL</p>
+            <button onclick="alert('¡Correcto! OWL es BÚHO. 🎉')">Comprobar</button>
+          </div>
+          <div class="animal-item">
+            <div class="animal-box">🦌</div>
+            <p class="animal-name">DEER</p>
+            <button onclick="alert('¡Correcto! DEER es CIERVO. 🎉')">Comprobar</button>
+          </div>
+          <div class="animal-item">
+            <div class="animal-box">🐶</div>
+            <p class="animal-name">DOG</p>
+            <button onclick="alert('¡Correcto! DOG es PERRO. 🎉')">Comprobar</button>
+          </div>
+          <div class="animal-item">
+            <div class="animal-box">🐱</div>
+            <p class="animal-name">CAT</p>
+            <button onclick="alert('¡Correcto! CAT es GATO. 🎉')">Comprobar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="body-section">
+        <h2>Partes de la Cara y del Torso</h2>
+        <p>¡Aprendamos las partes de la cara y el torso en inglés!</p>
+        <div class="activity">
+          <div class="body-item">
+            <div class="body-box">👀</div>
+            <p class="body-name">EYES - OJOS</p>
+          </div>
+          <div class="body-item">
+            <div class="body-box">👃</div>
+            <p class="body-name">NOSE - NARIZ</p>
+          </div>
+          <div class="body-item">
+            <div class="body-box">👄</div>
+            <p class="body-name">MOUTH - BOCA</p>
+          </div>
+          <div class="body-item">
+            <div class="body-box">💪</div>
+            <p class="body-name">ARM - BRAZO</p>
+          </div>
+          <div class="body-item">
+            <div class="body-box">🤲</div>
+            <p class="body-name">HANDS - MANOS</p>
+          </div>
+          <div class="body-item">
+            <div class="body-box">🦵</div>
+            <p class="body-name">LEG - PIERNA</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <h2>¡Identifica las partes del cuerpo!</h2>
+        <div class="activity">
+          <div class="body-item">
+            <div class="body-box">👀</div>
+            <p class="body-name">EYES</p>
+            <button onclick="alert('¡Correcto! EYES son OJOS. 🎉')">Comprobar</button>
+          </div>
+          <div class="body-item">
+            <div class="body-box">👃</div>
+            <p class="body-name">NOSE</p>
+            <button onclick="alert('¡Correcto! NOSE es NARIZ. 🎉')">Comprobar</button>
+          </div>
+          <div class="body-item">
+            <div class="body-box">👄</div>
+            <p class="body-name">MOUTH</p>
+            <button onclick="alert('¡Correcto! MOUTH es BOCA. 🎉')">Comprobar</button>
+          </div>
+          <div class="body-item">
+            <div class="body-box">💪</div>
+            <p class="body-name">ARM</p>
+            <button onclick="alert('¡Correcto! ARM es BRAZO. 🎉')">Comprobar</button>
+          </div>
+          <div class="body-item">
+            <div class="body-box">🤲</div>
+            <p class="body-name">HANDS</p>
+            <button onclick="alert('¡Correcto! HANDS son MANOS. 🎉')">Comprobar</button>
+          </div>
+          <div class="body-item">
+            <div class="body-box">🦵</div>
+            <p class="body-name">LEG</p>
+            <button onclick="alert('¡Correcto! LEG es PIERNA. 🎉')">Comprobar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2025 Profesor Marco – Todos los derechos reservados</p>
+    </footer>
+  </div>
+
+  <script>
+    const passwords = {
+      '3years': 'LP3',
+      '4years': 'LP4',
+      '5years': 'LP5'
+    };
+
+    function selectGrade(grade) {
+      const password = prompt('Por favor, introduce la clave para acceder al contenido de ' + grade + ':');
+      if (password === passwords[grade]) {
+        const contentSections = document.querySelectorAll('.content-section');
+        contentSections.forEach(section => {
+          section.classList.remove('active');
+        });
+        const gradeButtons = document.querySelectorAll('.grade-btn');
+        gradeButtons.forEach(btn => {
+          btn.classList.remove('active');
+        });
+        const selectedContent = document.getElementById(grade + '-content');
+        if (selectedContent) {
+          selectedContent.classList.add('active');
+        }
+        event.target.classList.add('active');
+        selectedContent.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        alert('¡Clave incorrecta! Intenta de nuevo.');
+      }
+    }
+  </script>
+</body>
+</html>
